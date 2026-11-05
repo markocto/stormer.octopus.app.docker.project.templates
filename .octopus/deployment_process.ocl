@@ -15,3 +15,21 @@ step "run-a-script" {
         worker_pool_variable = ""
     }
 }
+
+step "run-a-script-number-2" {
+    name = "Run a Script number 2"
+    properties = {
+        Octopus.Action.TargetRoles = "demo-tenants"
+    }
+
+    action {
+        action_type = "Octopus.Script"
+        properties = {
+            Octopus.Action.RunOnServer = "false"
+            Octopus.Action.Script.ScriptBody = "#"
+            Octopus.Action.Script.ScriptSource = "Inline"
+            Octopus.Action.Script.Syntax = "PowerShell"
+        }
+        worker_pool_variable = ""
+    }
+}
